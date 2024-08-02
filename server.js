@@ -10,10 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const USERS_FILE = 'users.txt';
 
-// Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Helper function to read the users file
 const readUsers = () => {
     try {
         const data = fs.readFileSync(USERS_FILE, 'utf-8');
@@ -23,7 +21,6 @@ const readUsers = () => {
     }
 };
 
-// Helper function to write to the users file
 const writeUsers = (users) => {
     fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
 };
